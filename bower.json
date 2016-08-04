@@ -1,0 +1,17 @@
+{
+  "name": "starter-code",
+  "authors": [
+    "Luke Forsythe <luke@lukef.com>"
+  ],
+  "description": "bite me",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
