@@ -12,6 +12,8 @@
 
 var app = {};
 
+app.postNum = 23;
+
 app.yesterdaysDate = function() {
 
   var d = new Date();
@@ -35,8 +37,10 @@ app.doAjax = function() {
 
     success: function (rData) {
 
-    	// Create variable object for api data
-    	var	rImages = [];
+      // Create variable object for api data
+      // var imagesExist; // truthy or falsy
+      // var bestImageURL; // gets best version of URL
+      var	rImages = []; // contains all URLs
 
       // individual image print test
     	// console.log("image 1: ", rData.data.children[1].data.preview.images[0].source.url);
@@ -51,29 +55,112 @@ app.doAjax = function() {
       //   rImages.push(rData.data.children[i].data.preview.images[0].source.url);
       // }
 
-      for (i = 1; i < 10; i++) {
-        console.log("rImages "+i+": ",rData.data.children[i].data.preview.images[0].source.url);
-        rImages.push(rData.data.children[i].data.preview.images[0].source.url);
+      console.log( "redditImages 1: ", app.redditImages );
+
+
+      // Loop 1
+      for ( i = 0; i < app.postNum; i++ ) {
+
+        objectWithImage = rData.data.children[i].data.preview;
+        var url;
+
+        if ( objectWithImage ) {
+
+          if ( !("gif" in objectWithImage.images[0].variants) ) {
+
+            console.log( "Image "+i+": ",objectWithImage.images[0].source.url );
+            rImages.push( objectWithImage.images[0].source.url );
+
+          }
+
+          else {
+
+            console.log( "GIF "+i+": ",objectWithImage.images[0].variants.gif.source.url );
+            rImages.push( objectWithImage.images[0].variants.gif.source.url );
+
+          }
+
+
+        }
+
+        // else if ( objectWithImage && "gif" in objectWithImage ) {
+        //
+        //   console.log( "GIF "+i+": ",objectWithImage.images[0].variants.gif.source.url );
+        //   rImages.pop();
+        //   rImages.push( objectWithImage.images[0].variants.gif.source.url );
+        //
+        // }
+
+
+
+
+        // else {
+        //   continue;
+        // }
+
       }
 
 
-      app.redditImages(rImages);
+
+
+
+      // app.bestImageURL = function(postObject) {
+      //
+      //   console.log( "postObject: ",postObject );
+      //
+      //   if ("gif" in postObject) {
+      //     return postObject.images[0].variants.gif.source.url;
+      //   }
+      //
+      //   else {
+      //     return postObject.images[0].source.url;
+      //   }
+      //
+      // };
+      //
+      //
+      // // Loop 2
+      // for ( i = 0; i < app.postNum; i++ ) {
+      //
+      //   imagesExist = rData.data.children[i].data.preview;
+      //   console.log( "imagesExist: ",imagesExist );
+      //
+      //   if ( imagesExist ) {
+      //
+      //     app.bestImageURL( imagesExist );
+      //
+      //     console.log( "rImages "+i+": ",app.bestImageURL );
+      //
+      //     rImages.push( app.bestImageURL );
+      //
+      //   }
+      //
+      //   else {
+      //
+      //     continue;
+      //
+      //   }
+      //
+      // }
+
+      console.log( "rImages: ", rImages );
+      app.redditImages( rImages );
 
     }
+
+
 
   });
 
 };
 
-console.log("doSomething: ", app.redditImages);
+console.log( "redditImages 2: ", app.redditImages );
 
-app.redditImages = function(reddit) {
+app.redditImages = function( reddit ) {
 
-  $('.images_test').append('<img class="hero_image" src="' + reddit[0] + '">');
-  $('.images_test').append('<img class="hero_image" src="' + reddit[1] + '">');
-  $('.images_test').append('<img class="hero_image" src="' + reddit[2] + '">');
-  $('.images_test').append('<img class="hero_image" src="' + reddit[3] + '">');
-  $('.images_test').append('<img class="hero_image" src="' + reddit[4] + '">');
+  for ( i = 0; i < app.postNum; i++ ) {
+    $('.images_test').append('<img class="hero_image" src="' + reddit[i] + '">');
+  }
 
 };
 
