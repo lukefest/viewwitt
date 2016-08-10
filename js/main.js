@@ -12,7 +12,7 @@
 
 var app = {};
 
-app.postNum = 23;
+app.postNum = 25;
 
 app.yesterdaysDate = function() {
 
@@ -62,7 +62,6 @@ app.doAjax = function() {
       for ( i = 0; i < app.postNum; i++ ) {
 
         objectWithImage = rData.data.children[i].data.preview;
-        var url;
 
         if ( objectWithImage ) {
 
@@ -92,11 +91,9 @@ app.doAjax = function() {
         // }
 
 
-
-
-        // else {
-        //   continue;
-        // }
+        else {
+          continue;
+        }
 
       }
 
