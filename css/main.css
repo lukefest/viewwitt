@@ -1,7 +1,7 @@
-/* 
-Project Name: Blank Template
-Client: Your Client
-Author: Your Name
+/*
+Project Name: Yesterdays News
+Client: Lukefest incorperated
+Author: Lukefest
 */
 
 /******************************************
@@ -11,42 +11,114 @@ Author: Your Name
 /* add a list of colours used in the project */
 
 /******************************************
-/* SENSIBLE DEFAULTS                   
+/* SENSIBLE DEFAULTS
 /*******************************************/
+
 
 * {
      box-sizing: border-box;
 }
 
+
 /******************************************
 /* TYPOGRAPHY
 /*******************************************/
 
-/* add type styles here */
+
+h1 {
+     font-size: 5em;
+     padding: 0;
+     margin: 0;
+}
+
+h2 {
+     font-size: 3em;
+     padding: 0;
+     margin: 0;
+}
+
+p {
+     font-size: 1em;
+     padding: 0;
+     margin: 0;
+}
 
 
 /******************************************
-/* LAYOUT                   
+/* LAYOUT
 /*******************************************/
 
+
 .site-container {
-	max-width: 960px;
+     background-color: #fff;
+}
+
+.site-content {
+
+     max-width: 960px;
 	margin: 0 auto;
+
 }
 
 .site-header {
 
-}
-.site-content {
+     text-align: center;
+     margin-top: 1em;
 
 }
+
+.intro {
+
+     text-align: center;
+
+}
+
+.date {
+
+     text-align: center;
+     font-size: 1em
+
+}
+
+.news_item {
+     margin-top: 2em;
+}
+
+.hero_box {
+
+     display: block;
+     height: 100%;
+     background-color: grey;
+     overflow: hidden;
+
+}
+
+.hero_image {
+
+     display: block;
+     width: 100%;
+     position: relative;
+     margin-left: auto;
+     margin-right: auto;
+
+}
+
 .site-footer {
 
+     position: fixed;
+     width: 100%;
+     bottom: 0;
+     padding:1em;
+     text-align: center;
+     background-color: rgb(201, 201, 201);
+
 }
+
 
 /******************************************
 /* HELPER CLASSES
 /*******************************************/
+
 
 /* Clearfix */
 .clearfix:before,
@@ -67,9 +139,5 @@ Author: Your Name
 
 
 /******************************************
-/* ADDITIONAL STYLES                   
+/* ADDITIONAL STYLES
 /*******************************************/
-
-
-
-
