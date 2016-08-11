@@ -6,32 +6,26 @@
 // by Lukefest
 // -------------------------------------------
 
-// gifs, funny, EarthPorn, gaming,
+// TODO
+// Add links to images
+// Add sub-titles to images
+// link up form to subreddit param
+// Add loading placeholders
+// Add simple pagination: link to next 25
+// Add lazy load at bottom of screen
 
-// API
 
 var app = {};
 
-//Options:  gifs, funny, EarthPorn, pics, MostBeautiful,GIFextra,HybridAnimals,nonononoYES,
-app.subReddit = "Politics";
+// subReddit options
+// gifs, funny, EarthPorn, pics, MostBeautiful,GIFextra,HybridAnimals,
+// nonononoYES, ColorizedHistory
+
+app.subReddit = "ColorizedHistory";
 app.postNum = 25;
 app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 
 console.log("Source subreddit URL:", app.fullURL);
-
-app.date = function() {
-
-  var d = new Date();
-
-  d.setDate(d.getDate()); // <-- add this
-
-  var day = d.getDate();
-  var month = d.getMonth()+1;
-  var year = d.getFullYear();
-
-  return day + "/" + month + "/" + year;
-
-};
 
 app.doAjax = function(fullURL) {
 
@@ -75,7 +69,7 @@ app.doAjax = function(fullURL) {
         }
 
         else {
-          console.log("NOT IMAGE: "+i);
+          console.log("No image "+i);
           continue;
         }
 
@@ -108,6 +102,5 @@ app.redditImages = function( rImages, validPostsNum ) {
   $(document).ready(function(){
 
     app.doAjax();
-    $( '.date' ).text(app.date);
 
 });

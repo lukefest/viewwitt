@@ -49,8 +49,14 @@ p {
 /*******************************************/
 
 
+
 .body {
      background-color: #FFFFFF;
+}
+
+.site-container {
+     padding-left: 1em;
+     padding-right: 1em;
 }
 
 .site-content {
@@ -62,24 +68,82 @@ p {
 
 .site-header {
 
-     text-align: center;
-     margin-top: 1em;
+     display: block;
+     height: 6em;
+     margin-top: 4em;
+     margin-bottom: 4em;
 
+}
+
+.logo {
+     display: block;
+     float: left;
+     height: 6em;
+}
+
+.logo img {
+     display: block;
+     width: 6em;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+.logo-text {
+     font-size: 1.6em;
+     font-family: "helvetica neue";
+     font-weight:500;
+     line-height: 1em;
+     padding: 0;
+     margin: 0;
 }
 
 .intro {
 
+     display: inline-block;
+     float: left;
      text-align: center;
+     padding-top: 2.3em;
+     height: 6em;
+     width: 15em;
+     margin-left: 3em;
+     margin-right: 3em;
 
 }
 
-.date {
+.subreddit-form {
 
-     text-align: center;
-     font-size: 1em;
-     padding-bottom:6em;
+     display: inline-block;
+     float: left;
+     padding-top: 1.8em;
+     height: 6em;
 
 }
+
+.subreddit-form input {
+     border: 1px solid grey;
+     /*border-radius: 2px;*/
+     height: 2em;
+     width: 15em;
+     padding: 0.5em;
+     margin-left: 0.2em;
+}
+
+::-webkit-input-placeholder {
+   color: black;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: black;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black;
+}
+
+:-ms-input-placeholder {
+   color: black;
+}
+
 
 .news_item {
      margin-top: 2em;
