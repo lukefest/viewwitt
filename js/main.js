@@ -13,11 +13,11 @@
 var app = {};
 
 //Options:  gifs, funny, EarthPorn, pics, MostBeautiful,GIFextra,HybridAnimals,nonononoYES,
-app.subReddit = "marvel";
+app.subReddit = "Politics";
 app.postNum = 25;
 app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 
-console.log(app.fullURL);
+console.log("Source subreddit URL:", app.fullURL);
 
 app.date = function() {
 
@@ -41,10 +41,13 @@ app.doAjax = function(fullURL) {
 
     success: function (rData) {
 
-      console.log("AJAX works");
+      console.log("AJAX working...");
 
       // Create variable object for api data
-      var	rImages = []; // contains all URLs
+      // to hold URLs
+      var	rImages = [];
+      // to hold URL count
+      var validPostsNum;
 
       // Loop 1
       for ( i = 0; i < app.postNum; i++ ) {
@@ -72,12 +75,17 @@ app.doAjax = function(fullURL) {
         }
 
         else {
+          console.log("NOT IMAGE: "+i);
           continue;
         }
 
       }
 
-      app.redditImages( rImages );
+      validPostsNum = (Object.keys(rImages).length);
+      console.log("Valid image posts: ", validPostsNum);
+
+      // feed object containing URLS into app object
+      app.redditImages( rImages, validPostsNum );
 
     }
 
@@ -85,12 +93,12 @@ app.doAjax = function(fullURL) {
 
 };
 
-console.log( "redditImages 2: ", app.redditImages );
 
-app.redditImages = function( reddit ) {
 
-  for ( i = 0; i < app.postNum; i++ ) {
-    $('.images_test').append('<img class="hero_image" src="' + reddit[i] + '">');
+app.redditImages = function( rImages, validPostsNum ) {
+
+  for ( i = 0; i < validPostsNum; i++ ) {
+    $('.images_test').append('<img class="hero_image" src="' + rImages[i] + '">');
   }
 
 };
