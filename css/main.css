@@ -49,8 +49,8 @@ p {
 /*******************************************/
 
 
-.site-container {
-     background-color: #fff;
+.body {
+     background-color: #FFFFFF;
 }
 
 .site-content {
@@ -76,7 +76,8 @@ p {
 .date {
 
      text-align: center;
-     font-size: 1em
+     font-size: 1em;
+     padding-bottom:6em;
 
 }
 
@@ -96,14 +97,22 @@ p {
 .hero_image {
 
      display: block;
-     max-width: 100%;
+     width: 100%;
      position: relative;
      margin-left: auto;
      margin-right: auto;
+     padding-top: 16em;
 
 }
 
-.site-footer {
+
+.hero_image:first-of-type {
+
+     padding-top: 0;
+
+}
+
+/*.site-footer {
 
      position: fixed;
      width: 100%;
@@ -112,7 +121,7 @@ p {
      text-align: center;
      background-color: rgb(201, 201, 201);
 
-}
+}*/
 
 
 /******************************************
