@@ -17,6 +17,7 @@ Author: Lukefest
 
 * {
      box-sizing: border-box;
+     font-family: "helvetica neue", "helevetica", arial, sans-serif;
 }
 
 
@@ -62,14 +63,15 @@ p {
 .site-content {
 
      max-width: 960px;
-	margin: 0 auto;
+	margin: 0 auto 20em auto;
+
 
 }
 
 .site-header {
 
      display: block;
-     height: 6em;
+     height: auto;
      margin-top: 4em;
      margin-bottom: 4em;
 
@@ -77,20 +79,19 @@ p {
 
 .logo {
      display: block;
-     float: left;
      height: 6em;
-}
-
-.logo img {
-     display: block;
      width: 6em;
      margin-left: auto;
      margin-right: auto;
 }
 
+.logo img {
+     display: block;
+     width: 6em;
+}
+
 .logo-text {
      font-size: 1.6em;
-     font-family: "helvetica neue";
      font-weight:500;
      line-height: 1em;
      padding: 0;
@@ -99,33 +100,47 @@ p {
 
 .intro {
 
-     display: inline-block;
-     float: left;
-     text-align: center;
-     padding-top: 2.3em;
+     display: block;
      height: 6em;
-     width: 15em;
-     margin-left: 3em;
-     margin-right: 3em;
+     width: 14em;
+
+     margin-left: auto;
+     margin-right: auto;
+
+     padding: 2.3em 2em 0 2em;
+
+     text-align: center;
+     font-weight:500;
 
 }
 
 .subreddit-form {
 
-     display: inline-block;
-     float: left;
+     display: block;
+     width: 16em;
+     /*height: 6em;*/
+
+     margin-left: auto;
+     margin-right: auto;
+
      padding-top: 1.8em;
-     height: 6em;
+
+     text-align: center;
+     font-weight:500;
+
 
 }
 
 .subreddit-form input {
-     border: 1px solid grey;
-     /*border-radius: 2px;*/
+
      height: 2em;
-     width: 15em;
-     padding: 0.5em;
+     width: 10em;
      margin-left: 0.2em;
+
+     border: 1px solid grey;
+     padding: 0.5em;
+     font-weight:400;
+
 }
 
 ::-webkit-input-placeholder {
@@ -144,6 +159,11 @@ p {
    color: black;
 }
 
+
+/*.content {
+     width: auto;
+     float: left;
+}*/
 
 .news_item {
      margin-top: 2em;
@@ -165,7 +185,7 @@ p {
      position: relative;
      margin-left: auto;
      margin-right: auto;
-     margin-top: 16em;
+     margin-top: 6em;
      background-color: grey;
 
 }
@@ -187,6 +207,67 @@ p {
      background-color: rgb(201, 201, 201);
 
 }*/
+
+
+/******************************************
+/* Media Queries
+/*******************************************/
+
+
+@media only screen and (min-width: 630px) {
+    /* For tablets: */
+
+    .site-header {
+
+         /*position: fixed;
+         top:0;*/
+         float: left;
+         width: 100%;
+
+    }
+
+    .logo {
+         margin-left: 0;
+         margin-right: 0;
+         float: left;
+    }
+
+    .intro {
+
+         margin-left: 0;
+         margin-right: 0;
+         float: left;
+         text-align: center;
+
+    }
+
+    .subreddit-form {
+
+         margin-left: 0;
+         margin-right: 0;
+         float: right;
+         text-align: right;
+
+    }
+
+    .subreddit-form input {
+
+         height: 2em;
+         width: 10em;
+         margin-left: 0.2em;
+
+         border: 1px solid grey;
+         padding: 0.5em;
+         font-weight:400;
+
+    }
+
+
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+
+}
 
 
 /******************************************

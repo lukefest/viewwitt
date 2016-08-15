@@ -18,10 +18,10 @@
 var app = {};
 
 // subReddit options
-// gifs, funny, EarthPorn, pics, MostBeautiful,GIFextra,HybridAnimals,
-// nonononoYES, ColorizedHistory
+// gifs, funny, EarthPorn, pics, MostBeautiful, GIFextra,
+// nonononoYES, ColorizedHistory, MineralPorn, CityPorn
 
-app.subReddit = "ColorizedHistory";
+app.subReddit = "EarthPorn";
 app.postNum = 25;
 app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 
@@ -92,7 +92,7 @@ app.doAjax = function(fullURL) {
 app.redditImages = function( rImages, validPostsNum ) {
 
   for ( i = 0; i < validPostsNum; i++ ) {
-    $('.images_test').append('<img class="hero_image" src="' + rImages[i] + '">');
+    $('.content').append('<img class="hero_image" src="' + rImages[i] + '">');
   }
 
 };
