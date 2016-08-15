@@ -20,6 +20,9 @@ Author: Lukefest
      font-family: "helvetica neue", "helevetica", arial, sans-serif;
 }
 
+a {
+     text-decoration: none;
+}
 
 /******************************************
 /* TYPOGRAPHY
@@ -101,15 +104,14 @@ p {
 .intro {
 
      display: block;
-     height: 6em;
      width: 14em;
 
      margin-left: auto;
      margin-right: auto;
 
-     padding: 2.3em 2em 0 2em;
+     padding: 0 0 0 0.8em;
 
-     text-align: center;
+     text-align: left;
      font-weight:500;
 
 }
@@ -117,13 +119,12 @@ p {
 .subreddit-form {
 
      display: block;
-     width: 16em;
      /*height: 6em;*/
 
      margin-left: auto;
      margin-right: auto;
 
-     padding-top: 1.8em;
+     padding: 1em 0;
 
      text-align: center;
      font-weight:500;
@@ -133,13 +134,14 @@ p {
 
 .subreddit-form input {
 
-     height: 2em;
+     height: 2.6em;
      width: 10em;
      margin-left: 0.2em;
 
      border: 1px solid grey;
      padding: 0.5em;
      font-weight:400;
+     font-size: 1.4em;
 
 }
 
@@ -214,7 +216,7 @@ p {
 /*******************************************/
 
 
-@media only screen and (min-width: 630px) {
+@media only screen and (min-width: 650px) {
     /* For tablets: */
 
     .site-header {
@@ -236,8 +238,8 @@ p {
 
          margin-left: 0;
          margin-right: 0;
-         float: left;
-         text-align: center;
+         float: right;
+         padding: 1.7em 0 0 1em;
 
     }
 
@@ -245,20 +247,9 @@ p {
 
          margin-left: 0;
          margin-right: 0;
-         float: right;
-         text-align: right;
-
-    }
-
-    .subreddit-form input {
-
-         height: 2em;
-         width: 10em;
-         margin-left: 0.2em;
-
-         border: 1px solid grey;
-         padding: 0.5em;
-         font-weight:400;
+         float: left;
+         text-align: left;
+         padding: 1.2em 0 0 3em;
 
     }
 
