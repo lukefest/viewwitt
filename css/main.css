@@ -66,8 +66,7 @@ p {
 .site-content {
 
      max-width: 960px;
-	margin: 0 auto 20em auto;
-
+	margin: 0 auto 0 auto;
 
 }
 
@@ -132,7 +131,7 @@ p {
 
 }
 
-.subreddit-form input {
+#subreddit_form_input {
 
      height: 2.6em;
      width: 10em;
@@ -180,7 +179,7 @@ p {
 
 }
 
-.hero_image {
+.rPost_image {
 
      display: block;
      width: 100%;
@@ -193,7 +192,7 @@ p {
 }
 
 
-.hero_image:first-of-type {
+.rPost_image: first-of-type {
 
      margin-top: 3em;
 
@@ -254,11 +253,24 @@ p {
 
     }
 
-    .hero_image {
+    .rPost_image: first-of-type {
+
+         margin-top: 3em;
+
+    }
+
+    .rPost_image {
 
          margin-top: 8em;
 
     }
+
+    .content a p {
+         color: black;
+         text-align: center;
+         margin-top: 1em;
+    }
+
 
 
 }

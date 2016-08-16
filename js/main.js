@@ -22,26 +22,29 @@ var app = {};
 // nonononoYES, ColorizedHistory, MineralPorn, CityPorn
 
 app.subReddit = "EarthPorn";
+// app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 app.postNum = 25;
-app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 
-console.log("Source subreddit URL:", app.fullURL);
-
-app.doAjax = function(fullURL) {
+app.doAjax = function( subReddit ) {
 
   $.ajax( {
-    url: app.fullURL,
+    url: "https://www.reddit.com/r/" + app.subReddit + "/.json",
     dataType: "json",
 
     success: function (rData) {
 
       console.log("AJAX working...");
+      console.log("Source URL:", app.fullURL);
 
       // Create variable object for api data
       // to hold URLs
       var	rImages = [];
-      // to hold URL count
+      // to hold total valid URLs count
       var validPostsNum;
+      // to hold links to reddit posts
+      var rPostLinks = [];
+      // to hold titles
+      var rPostTitles = [];
 
       // Loop 1
       for ( i = 0; i < app.postNum; i++ ) {
@@ -56,6 +59,8 @@ app.doAjax = function(fullURL) {
 
             console.log( "Image "+i+": ",objectWithImage.images[0].source.url );
             rImages.push( objectWithImage.images[0].source.url );
+            rPostLinks.push( "http://reddit.com"+rObject.data.permalink );
+            rPostTitles.push( rObject.data.title );
 
           }
 
@@ -63,6 +68,8 @@ app.doAjax = function(fullURL) {
 
             console.log( "GIF "+i+": ",objectWithImage.images[0].variants.gif.source.url );
             rImages.push( objectWithImage.images[0].variants.gif.source.url );
+            rPostLinks.push( "http://reddit.com"+rObject.data.permalink );
+            rPostTitles.push( rObject.data.title );
 
           }
 
@@ -79,7 +86,7 @@ app.doAjax = function(fullURL) {
       console.log("Valid image posts: ", validPostsNum);
 
       // feed object containing URLS into app object
-      app.redditImages( rImages, validPostsNum );
+      app.redditImages( rImages, rPostLinks, rPostTitles, validPostsNum );
 
     }
 
@@ -88,14 +95,42 @@ app.doAjax = function(fullURL) {
 };
 
 
+// puts images etc on page when called
+app.redditImages = function( rImages, rPostLinks, rPostTitles, validPostsNum ) {
 
-app.redditImages = function( rImages, validPostsNum ) {
+  $('.content').html("");
 
   for ( i = 0; i < validPostsNum; i++ ) {
-    $('.content').append('<img class="hero_image" src="' + rImages[i] + '">');
+
+    $('.content').append(
+      '<a href="'+ rPostLinks[i] + '"> <img class="rPost_image" src="' + rImages[i] + '"> <p>'+ rPostTitles[i] +'</p> </a>'
+    );
+
   }
 
 };
+
+
+// changes subreddit function
+app.userSubredditInput = function( event ){
+
+	//stops page from reloading
+	event.preventDefault();
+
+  app.subReddit = ( $( '#subreddit_form_input' ).val() );
+
+  console.log( "app.subReddit: ", app.subReddit );
+  // console.log("app.subReddit: ", app.subReddit);
+
+	app.doAjax();
+
+};
+
+// User input and outcomes
+$( 'form' ).submit ( app.userSubredditInput );
+
+
+
 
 
 // Document Ready

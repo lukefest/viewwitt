@@ -24,8 +24,15 @@
 					</div>
 
 					<form class="subreddit-form">
-	  					<label for="subreddit">/r/</label>
-							<input type="text" id="subreddit" placeholder="EarthPorn"><br>
+	  					<label for="subreddit_form_input">/r/</label>
+							<input type="text" id="subreddit_form_input" value="" list="suggestions" placeholder="EarthPorn"><br>
+							<datalist id="suggestions">
+    						<option value="ColorizedHistory">
+									<option value="CityPorn">
+									<option value="EarthPorn">
+									<option value="SpacePorn">
+							</datalist>
+							<!-- placeholder="EarthPorn"-->
 					</form>
 
 					<p class="intro">
