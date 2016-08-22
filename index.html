@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="site description goes here">
-    	<meta name="keywords" content="site, keywords, go, here">
+    	<meta name="description" content="Just the images from any Reddit subreddit.">
+    	<meta name="keywords" content="reddit, subreddit, images, photos, gifs">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 		<title>viewwitt</title>
 
@@ -12,6 +12,9 @@
 	</head>
 
 	<body>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="js/main.js"></script>
 
 		<div class="site-container">
 
@@ -25,18 +28,19 @@
 
 					<form class="subreddit-form">
 	  					<label for="subreddit_form_input">/r/</label>
-							<input type="text" id="subreddit_form_input" value="" list="suggestions" placeholder="EarthPorn"><br>
-							<datalist id="suggestions">
+							<input type="text" id="subreddit_form_input" value="" placeholder="EarthPorn"><br>
+							<!-- <datalist id="suggestions">
     						<option value="ColorizedHistory">
 									<option value="CityPorn">
 									<option value="EarthPorn">
 									<option value="SpacePorn">
-							</datalist>
+							</datalist> -->
 							<!-- placeholder="EarthPorn"-->
+							<!-- list="suggestions" -->
 					</form>
 
 					<p class="intro">
-							Just the images from any <a href="#">Reddit</a> subreddit.
+							Just the images from any <a href="https://www.reddit.com/">Reddit</a> subreddit.
 					</p>
 
 				</header>
@@ -56,8 +60,7 @@
 
 		</div><!-- .site-container -->
 
-		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="js/main.js"></script>
+
 
 
 

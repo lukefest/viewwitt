@@ -20,6 +20,7 @@ var app = {};
 // subReddit options
 // gifs, funny, EarthPorn, pics, MostBeautiful, GIFextra,
 // nonononoYES, ColorizedHistory, MineralPorn, CityPorn
+// OldSchoolCool,
 
 app.subReddit = "EarthPorn";
 // app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";

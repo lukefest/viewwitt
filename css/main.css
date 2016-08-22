@@ -198,6 +198,12 @@ p {
 
 }
 
+.content a p {
+     color: black;
+     text-align: center;
+     margin-top: 1em;
+}
+
 /*.site-footer {
 
      position: fixed;
