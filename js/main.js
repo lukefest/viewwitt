@@ -23,7 +23,7 @@ var app = {};
 // OldSchoolCool,
 
 app.subReddit = "EarthPorn";
-// app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
+app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 app.postNum = 25;
 
 app.doAjax = function( subReddit ) {
