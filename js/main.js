@@ -1,31 +1,24 @@
-
-
-
 // -------------------------------------------
 // FEED READER PROJECT
 // by Lukefest
 // -------------------------------------------
 
 // TODO
-// Add links to images
-// Add sub-titles to images
-// link up form to subreddit param
-// Add loading placeholders
-// Add simple pagination: link to next 25
-// Add lazy load at bottom of screen
-
+// Curation of best subreddits
+// Loading placeholders
+// Pagination and or lazy loading
 
 var app = {};
 
 // subReddit options
 // gifs, funny, EarthPorn, pics, MostBeautiful, GIFextra,
-// nonononoYES, ColorizedHistory, MineralPorn, CityPorn
-// OldSchoolCool,
+// nonononoYES, ColorizedHistory, MineralPorn, CityPorn, OldSchoolCool
 
+// Main Controls
 app.subReddit = "EarthPorn";
-app.fullURL = "https://www.reddit.com/r/" + app.subReddit + "/.json";
 app.postNum = 25;
 
+// Engine / Gets images from subreddit (defined in app.subReddit)
 app.doAjax = function( subReddit ) {
 
   $.ajax( {
@@ -35,7 +28,6 @@ app.doAjax = function( subReddit ) {
     success: function (rData) {
 
       console.log("AJAX working...");
-      console.log("Source URL:", app.fullURL);
 
       // Create variable object for api data
       // to hold URLs
@@ -58,7 +50,7 @@ app.doAjax = function( subReddit ) {
 
           if ( !("gif" in objectWithImage.images[0].variants) ) {
 
-            console.log( "Image "+i+": ",objectWithImage.images[0].source.url );
+            //console.log( "Image "+i+": ",objectWithImage.images[0].source.url );
             rImages.push( objectWithImage.images[0].source.url );
             rPostLinks.push( "http://reddit.com"+rObject.data.permalink );
             rPostTitles.push( rObject.data.title );
@@ -67,7 +59,7 @@ app.doAjax = function( subReddit ) {
 
           else {
 
-            console.log( "GIF "+i+": ",objectWithImage.images[0].variants.gif.source.url );
+            //console.log( "GIF "+i+": ",objectWithImage.images[0].variants.gif.source.url );
             rImages.push( objectWithImage.images[0].variants.gif.source.url );
             rPostLinks.push( "http://reddit.com"+rObject.data.permalink );
             rPostTitles.push( rObject.data.title );
@@ -77,7 +69,7 @@ app.doAjax = function( subReddit ) {
         }
 
         else {
-          console.log("No image "+i);
+          //console.log("No image "+i);
           continue;
         }
 
@@ -95,8 +87,7 @@ app.doAjax = function( subReddit ) {
 
 };
 
-
-// puts images etc on page when called
+// Puts images on page when called using a loop
 app.redditImages = function( rImages, rPostLinks, rPostTitles, validPostsNum ) {
 
   $('.content').html("");
@@ -111,32 +102,41 @@ app.redditImages = function( rImages, rPostLinks, rPostTitles, validPostsNum ) {
 
 };
 
+// Document Ready load and UI input/output JS
+$(document).ready(function(){
 
-// changes subreddit function
-app.userSubredditInput = function( event ){
+  console.log("Page (re)loaded");
 
-	//stops page from reloading
-	event.preventDefault();
+  // Take whatever is in app.subReddit and put it in the form placeholder
+  document.getElementById("subreddit_form_input").placeholder = app.subReddit;
 
-  app.subReddit = ( $( '#subreddit_form_input' ).val() );
+  // Runs the Ajax: 
+  // 1. Puts together the subReddit URL (using app.subReddit)
+  // 2. Gets info from subReddit  
+  // 3. Displays everything
+  app.doAjax();
 
-  console.log( "app.subReddit: ", app.subReddit );
-  // console.log("app.subReddit: ", app.subReddit);
+  // User input and outcomes 
+  $( ".subreddit-form" ).submit (function () {
 
-	app.doAjax();
+    // console log 
+    console.log("Form submitted");
+    
+    // alert to test with...
+    //alert( "Handler for .submit() called." );
 
-};
+    // Changes the subreddit
+    app.subReddit = ( $( '#subreddit_form_input' ).val() );
 
-// User input and outcomes
-$( 'form' ).submit ( app.userSubredditInput );
-
-
-
-
-
-// Document Ready
-  $(document).ready(function(){
-
+    // Runs the Ajax: 
+    // 1. Puts together the subReddit URL (using app.subReddit)
+    // 2. Gets info from subReddit  
+    // 3. Displays everything
     app.doAjax();
+    
+    //stops page from reloading
+    return false;
+
+  });
 
 });

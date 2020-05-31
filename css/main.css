@@ -98,19 +98,13 @@ p {
      line-height: 1em;
      padding: 0;
      margin: 0;
+     color: black;
 }
 
 .intro {
 
      display: block;
-     width: 14em;
-
-     margin-left: auto;
-     margin-right: auto;
-
-     padding: 0 0 0 0.8em;
-
-     text-align: left;
+     text-align: center;
      font-weight:500;
 
 }
@@ -245,7 +239,7 @@ p {
          margin-left: 0;
          margin-right: 0;
          float: right;
-         padding: 1.7em 0 0 1em;
+         padding: 2.3em 0 0 1em;
 
     }
 
